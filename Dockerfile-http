@@ -1,0 +1,14 @@
+FROM ubuntu:18.04
+
+MAINTAINER hwon233@gmail.com
+
+RUN apt update
+RUN apt upgrade -y
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt install -y apache2
+RUN apt install -y php php-mysql
+
+EXPOSE 80
+
+CMD ["apachectl", "-D", "FOREGROUND"]
